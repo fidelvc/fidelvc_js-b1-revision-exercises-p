@@ -109,6 +109,20 @@ const library = [
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 /********************* EX1 */
+class magicBook {
+
+  static generateMagicSeal(title, author) {
+
+  }
+  constructor(title, author, genre, yearPublished, available){
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.yearPublished = yearPublished;
+    this.available = available;
+    this.magicSeal = generateMagicSeal(this.title, this.author);
+  }
+}
 
 /********************* EX2 */
 
