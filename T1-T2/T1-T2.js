@@ -113,9 +113,7 @@ const library = [
 /**
  * Mundo de los Libros Encantados:
  * TODO:
- * [x] Define Class "magicBook". En el constructor, además de las propiedades definir una propiedad nueva; "magicSeal" que añadirá un sello místico a cada libro nuevo.
-
-  Diseña una clase a la que denominaremos "magicBook" con un constructor mágico que, al ser invocado, a parte de todas las propiedades anteriormente mencionadas de los libros (title, author, genre, yearPublished y available)
+ * [x] Diseña una clase a la que denominaremos "magicBook" con un constructor mágico que, al ser invocado, a parte de todas las propiedades anteriormente mencionadas de los libros (title, author, genre, yearPublished y available)
   añada automáticamente un sello místico a cada nuevo libro en una nueva propiedad llamada "magicSeal"; el valor de esta propiedad se debe obtener llamando a un método de clase estático definido en la misma clase que llamaremos
   "generateMagicSeal" el cual recibirá dos parámetros: el título y el autor, a partir de estos parámetros, el método toma las primeras dos letras del título y, a continuación, las dos últimas del autor, las combina, las convierte 
   a mayúsculas y agrega "MAGIC" al final de la cadena, con este valor debemos definir la propiedad magicSeal en el constructor.
@@ -126,7 +124,11 @@ const library = [
 class magicBook {
 
   static generateMagicSeal(title, author) {
-
+    let letters = title[0] + title[1] + author[author.length-2] + author[author.length-1];
+    let mutLetters = letters.upperCase();
+    let sello = mutLetters+'MAGIC'
+    return sello;
+    
   }
   constructor(title, author, genre, yearPublished, available){
     this.title = title;
@@ -135,8 +137,15 @@ class magicBook {
     this.yearPublished = yearPublished;
     this.available = available;
     this.magicSeal = generateMagicSeal(this.title, this.author);
+    
   }
+  
+  
 }
+
+const book1 = new magicBook(library[0].title, library[0].author, library[0].genre, library[0].yearPublished, library[0].available);
+
+console.log(book1.magicSeal)
 
 /********************* EX2 */
 
