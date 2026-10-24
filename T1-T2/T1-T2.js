@@ -143,18 +143,9 @@ class magicBook {
 
 /********************* EX2 */
 
-/* 
 
-2.- map() El Encantador: Crea un hechizo usando el método map() para transformar los libros contenidos en la constante "library" a libros legibles solo por magos,
- de manera que en una constante a la que llamaremos "mysticalBooks" 
-
-  almacenemos solamente un Array con los valores de las propiedades magicSeal de nuevos libros mágicos generados a partir de la información contenida en la constante "library".
-  NOTA: Flechas Encantadas: Utiliza flechas encantadas (Arrow functions) en tus conjuros para realizar acciones más rápidas y precisas dentro de tu método map().
-
-*/
-
-const mysticalBooks = library.map(book => new magicBook(book.title, book.author, book.genre, book.yearPublished, book.available))
-console.log(mysticalBooks)
+const mysticalBooks = library.map(book => magicBook.generateMagicSeal(book.title, book.author))
+//console.log(mysticalBooks)
 
 /********************* EX3 */
 
