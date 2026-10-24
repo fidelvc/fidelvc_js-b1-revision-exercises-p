@@ -110,42 +110,36 @@ const library = [
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 /********************* EX1 */
 
-/**
- * Mundo de los Libros Encantados:
- * TODO:
- * [x] Diseña una clase a la que denominaremos "magicBook" con un constructor mágico que, al ser invocado, a parte de todas las propiedades anteriormente mencionadas de los libros (title, author, genre, yearPublished y available)
-  añada automáticamente un sello místico a cada nuevo libro en una nueva propiedad llamada "magicSeal"; el valor de esta propiedad se debe obtener llamando a un método de clase estático definido en la misma clase que llamaremos
-  "generateMagicSeal" el cual recibirá dos parámetros: el título y el autor, a partir de estos parámetros, el método toma las primeras dos letras del título y, a continuación, las dos últimas del autor, las combina, las convierte 
-  a mayúsculas y agrega "MAGIC" al final de la cadena, con este valor debemos definir la propiedad magicSeal en el constructor.
-  
-  Por otro lado, define un método de instancia denominado toggleAvailability que modifique mágicamente la propiedad "available" del objeto de manera que si está definida como true la ponga en false y viceversa al invocar este método.
-  
-  NOTA: Utiliza la "palabra mágica" this en tus hechizos dentro de la clase magicBook. */
 class magicBook {
-
   static generateMagicSeal(title, author) {
     let letters = title[0] + title[1] + author[author.length-2] + author[author.length-1];
-    let mutLetters = letters.upperCase();
+    let mutLetters = letters.toUpperCase();
     let sello = mutLetters+'MAGIC'
     return sello;
     
   }
+
+  
   constructor(title, author, genre, yearPublished, available){
     this.title = title;
     this.author = author;
     this.genre = genre;
     this.yearPublished = yearPublished;
     this.available = available;
-    this.magicSeal = generateMagicSeal(this.title, this.author);
-    
+    this.magicSeal = magicBook.generateMagicSeal(this.title, this.author)
+  }
+  
+  
+  
+  toggleAvailability(){
+    return this.available = !this.available;
   }
   
   
 }
 
-const book1 = new magicBook(library[0].title, library[0].author, library[0].genre, library[0].yearPublished, library[0].available);
-
-console.log(book1.magicSeal)
+//const book1 = new magicBook(library[1].title, library[1].author, library[1].genre, library[1].yearPublished, library[1].available);
+//console.log(book1.toggleAvailability())
 
 /********************* EX2 */
 
