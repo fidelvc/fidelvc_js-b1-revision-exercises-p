@@ -112,15 +112,13 @@ const library = [
 
 class magicBook {
   static generateMagicSeal(title, author) {
-    let letters = title[0] + title[1] + author[author.length-2] + author[author.length-1];
+    let letters = title[0] + title[1] + author[author.length - 2] + author[author.length - 1];
     let mutLetters = letters.toUpperCase();
-    let sello = mutLetters+'MAGIC'
+    let sello = mutLetters + 'MAGIC'
     return sello;
-    
   }
 
-  
-  constructor(title, author, genre, yearPublished, available){
+  constructor(title, author, genre, yearPublished, available) {
     this.title = title;
     this.author = author;
     this.genre = genre;
@@ -128,14 +126,10 @@ class magicBook {
     this.available = available;
     this.magicSeal = magicBook.generateMagicSeal(this.title, this.author)
   }
-  
-  
-  
-  toggleAvailability(){
+
+  toggleAvailability() {
     return this.available = !this.available;
   }
-  
-  
 }
 
 //const book1 = new magicBook(library[1].title, library[1].author, library[1].genre, library[1].yearPublished, library[1].available);
@@ -148,6 +142,9 @@ const mysticalBooks = library.map(book => magicBook.generateMagicSeal(book.title
 //console.log(mysticalBooks)
 
 /********************* EX3 */
+
+const fantasyBooksAfter1950 = library.filter(book => book.yearPublished > 1950 && book.genre === 'Fantasy');
+//console.log(fantasyBooksAfter1950)
 
 /********************* EX4 */
 
